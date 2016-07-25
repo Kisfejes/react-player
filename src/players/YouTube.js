@@ -95,10 +95,12 @@ export default class YouTube extends Base {
   }
   play () {
     if (!this.isReady || !this.player.playVideo) return
+    console.log('Tell youtube to play the video');
     this.player.playVideo()
   }
   pause () {
     if (!this.isReady || !this.player.pauseVideo) return
+    console.log('Tell youtube to pause the video');
     this.player.pauseVideo()
   }
   stop () {

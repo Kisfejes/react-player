@@ -95,8 +95,24 @@ export default class App extends Component {
             youtubeConfig={youtubeConfig}
             fileConfig={fileConfig}
             onStart={() => console.log('onStart')}
-            onPlay={() => this.setState({ playing: true })}
-            onPause={() => this.setState({ playing: false })}
+            onPlay={
+              () => {
+                console.log('onPlay event from youtube (Playing should be set true)');
+                setTimeout(() => {
+                  console.log('Playing set true');
+                  this.setState({ playing: true })
+                }, 500)
+              }
+            }
+            onPause={
+              () => {
+                console.log('onPause event from youtube (Playing should be set false)');
+                setTimeout(() => {
+                  console.log('Playing set false');
+                  this.setState({ playing: false })
+                }, 500)
+              }
+            }
             onBuffer={() => console.log('onBuffer')}
             onEnded={() => this.setState({ playing: false })}
             onError={e => console.log('onError', e)}
